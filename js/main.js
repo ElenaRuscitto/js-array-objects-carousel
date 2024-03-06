@@ -107,7 +107,7 @@ btnNext.addEventListener('click', function (){
 
 
 
-//////   BONUS 1   //////
+////// *  BONUS 1  * //////
 
 const allThumbnail = document.querySelectorAll('.my-thumbnail');
 
@@ -126,6 +126,26 @@ allThumbnail.forEach((elemento, indice) => {
 })
 
 
+
+////// *  BONUS 2  * //////
+
+// al click dell'utente aggiungo funzionalità di autoplay alle immagini
+
+autoPlay = setInterval (function() {
+
+    myCarouselItem[contImg].classList.remove('active');
+    myThumbnail[contImg].classList.remove('active');
+
+    contImg++;
+   
+    if (contImg == images.length) {
+        contImg = 0;
+    }
+
+    myCarouselItem[contImg].classList.add('active');
+    myThumbnail[contImg].classList.add('active');
+
+  }, 3000)
 
 
 
