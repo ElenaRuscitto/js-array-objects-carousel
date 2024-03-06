@@ -16,7 +16,7 @@ const images = [
         title: 'Chile',
         description: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et temporibus voluptatum suscipit tempore aliquid deleniti aut veniam.'
     },
-    
+
     {
         url: 'https://static1.evcdn.net/images/reduction/1583177_w-1920_h-1080_q-70_m-crop.jpg',
         title: 'Argentina',
@@ -29,3 +29,35 @@ const images = [
     },
 ];
 
+
+const myCarouselImages = document.querySelector('.my-carousel-images');
+const myThumbnails = document.querySelector('.my-thumbnails');
+
+
+// reset immagini
+myCarouselImages.innerHTML = '';
+myThumbnails.innerHTML = '';
+
+
+// reinserimento delle immagini
+images.forEach((elemento, indice) =>{
+    myCarouselImages.innerHTML += `
+    <div class="my-carousel-item active">
+        <img class="img-fluid" src= "${elemento.url} alt="${elemento.title}" >
+            <div class="item-description px-3">
+                <h2>${elemento.title}</h2> 
+                <p>${elemento.description}</p>
+            </div>
+    </div>
+    `;
+   
+}) 
+
+// reinserimento delle thumbnail
+images.forEach((elemento, indice) =>{
+    myThumbnails.innerHTML += `
+    <div class="my-thumbnail active">
+        <img class="img-fluid" src=${elemento.url} alt="Thumbnail of ${elemento.title} picture">
+    </div>
+    `;
+}) 
