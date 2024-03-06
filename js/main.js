@@ -33,6 +33,7 @@ const images = [
 const myCarouselImages = document.querySelector('.my-carousel-images');
 const myThumbnails = document.querySelector('.my-thumbnails');
 
+let contImg = 0;
 
 // reset immagini
 myCarouselImages.innerHTML = '';
@@ -42,8 +43,8 @@ myThumbnails.innerHTML = '';
 // reinserimento delle immagini
 images.forEach((elemento, indice) =>{
     myCarouselImages.innerHTML += `
-    <div class="my-carousel-item active">
-        <img class="img-fluid" src= "${elemento.url} alt="${elemento.title}" >
+    <div class="my-carousel-item">
+        <img class="img-fluid" src= "${elemento.url}" alt="${elemento.title} picture" >
             <div class="item-description px-3">
                 <h2>${elemento.title}</h2> 
                 <p>${elemento.description}</p>
@@ -56,8 +57,90 @@ images.forEach((elemento, indice) =>{
 // reinserimento delle thumbnail
 images.forEach((elemento, indice) =>{
     myThumbnails.innerHTML += `
-    <div class="my-thumbnail active">
-        <img class="img-fluid" src=${elemento.url} alt="Thumbnail of ${elemento.title} picture">
+    <div class="my-thumbnail">
+        <img class="img-fluid" src="${elemento.url}" alt="Thumbnail of ${elemento.title} picture">
     </div>
     `;
 }) 
+
+// reinserimento del tasto prev
+myThumbnails.innerHTML += `
+    <div class="my-previous position-absolute">
+        <span class="my-prev-hook"></span>
+    </div>
+`;
+
+// reinserimento del tasto next
+myThumbnails.innerHTML += `
+    <div class="my-next position-absolute">
+        <span class="my-next-hook"></span>
+    </div>
+`;
+
+
+const myCarouselItem = document.getElementsByClassName('my-carousel-item');
+const myThumbnail = document.getElementsByClassName('my-thumbnail');
+
+const btnPrev = document.querySelector('.my-prev-hook');
+const btnNext = document.querySelector('.my-next-hook');
+
+// aggiungo la classe active ad immagini e thumbnail
+myCarouselItem[contImg].classList.add('active');
+myThumbnail[contImg].classList.add('active');
+
+console.log(btnPrev, btnNext);
+
+// al click del btnPREV
+btnPrev.addEventListener('click', function (){
+
+    prev();
+})
+
+// al click del btnNext
+btnNext.addEventListener('click', function (){
+
+    next();
+  })
+
+
+
+
+
+  ///////////////////////////    FUNZIONI    ////////////////////////////
+  
+  function prev() {
+
+    myCarouselItem[contImg].classList.remove('active');
+    myThumbnail[contImg].classList.remove('active');
+
+    contImg--;
+
+   
+    if (contImg < 0) {
+        contImg = images.length-1;
+    }
+
+    myCarouselItem[contImg].classList.add('active');
+    myThumbnail[contImg].classList.add('active');
+
+  }
+
+
+
+
+  function next() {
+
+    myCarouselItem[contImg].classList.remove('active');
+    myThumbnail[contImg].classList.remove('active');
+
+    contImg++;
+
+    
+    if (contImg > images.length-1) {
+        contImg = 0;
+    }
+
+    myCarouselItem[contImg].classList.add('active');
+    myThumbnail[contImg].classList.add('active');
+
+  }

@@ -30,3 +30,10 @@ Aggiungere bottoni di start/stop e di inversione del meccanismo di autoplay.
 
 
 ## SVOLGIMENTO
+1. resetto il contenuto dell'html
+2. reinserimento dell immagini, delle thumbnail e del prev/next
+3. add class active ad immagini e thumbnail
+4. creo le funzioni dei tasti next e prev per far andare l'utente avanti/indierto al click del bottone
+ - ad ogni click si deve rimuovere active a myCarouselItem/myThumbnail
+ - aumentare/diminuire il contatore
+ - ad ogni click si deve aggiungere active a myCarouselItem/myThumbnail
