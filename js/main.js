@@ -94,13 +94,40 @@ console.log(btnPrev, btnNext);
 btnPrev.addEventListener('click', function (){
 
     prev();
-})
+});
+
 
 // al click del btnNext
 btnNext.addEventListener('click', function (){
 
     next();
-  })
+});
+
+
+
+
+
+//////   BONUS 1   //////
+
+const allThumbnail = document.querySelectorAll('.my-thumbnail');
+
+allThumbnail.forEach((elemento, indice) => {
+
+    elemento.addEventListener('click', () => {
+
+        myCarouselItem[contImg].classList.remove('active');
+        myThumbnail[contImg].classList.remove('active');
+
+        contImg = indice;
+
+        myCarouselItem[contImg].classList.add('active');
+        myThumbnail[contImg].classList.add('active');
+    })
+})
+
+
+
+
 
 
 
