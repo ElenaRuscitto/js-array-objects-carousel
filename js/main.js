@@ -149,6 +149,26 @@ autoPlay = setInterval (function() {
 
 
 
+////// *  BONUS 3  * //////
+
+// const btnInversion.querySelector('.btn-inversion');
+// const btnAutoplay.querySelector('.btn-autoplay')
+
+// let touch = true;
+// btnAutoplay.addEventListener('click', function() {
+//     if (touch) {
+//         touch = false;
+//         clearInterval(autoPlay);
+//     } else {
+//         touch = true;
+//         setInterval(autoPlay, 3000);
+//     }
+// })
+
+
+
+
+
 
 
 
